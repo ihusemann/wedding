@@ -108,7 +108,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@workspace/ui':
+      '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       lucide-react:
