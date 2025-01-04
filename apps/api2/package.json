@@ -1,0 +1,19 @@
+{
+  "name": "api2",
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@hono/zod-validator": "^0.4.2",
+    "@repo/schemas": "workspace:*",
+    "hono": "^4.6.15"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsup": "^8.3.5",
+    "tsx": "^4.7.1"
+  }
+}
