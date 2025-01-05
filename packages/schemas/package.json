@@ -2,8 +2,6 @@
   "name": "@repo/schemas",
   "version": "0.0.0",
   "private": true,
-  "main": "./dist/index.js",
-  "types": "./dist/index.t.ds",
   "scripts": {
     "build": "tsc -b -v"
   },
@@ -16,12 +14,12 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "import": "./src/index.js",
+      "require": "./src/index.js"
     },
     "./*": {
-      "import": "./dist/*.js",
-      "require": "./dist/*.js"
+      "import": "./src/*.js",
+      "require": "./src/*.js"
     }
   }
 }
