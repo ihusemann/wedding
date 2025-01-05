@@ -1,9 +1,11 @@
 {
   "name": "@repo/schemas",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.t.ds",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -b -v"
   },
   "dependencies": {
     "zod": "^3.23.8"
@@ -13,9 +15,13 @@
     "typescript": "^5.7.2"
   },
   "exports": {
-    "./trial": {
-      "types": "./src/trial.ts",
-      "import": "./src/trial.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./*": {
+      "import": "./dist/*.js",
+      "require": "./dist/*.js"
     }
   }
 }

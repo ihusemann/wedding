@@ -8,7 +8,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true, // Clean the output directory before building
   dts: true,
-  external: [],
+  external: ["prisma", "@prisma/client"],
   esbuildOptions(options) {
     options.plugins = options.plugins || [];
     // Add specific plugins here if needed
@@ -20,5 +20,5 @@ export default defineConfig({
 
   // IMPORTANT!  This config is what forces `@repo/schemas`, etc. to be bundled
   // https://github.com/egoist/tsup/issues/619
-  noExternal: [/(.*)/],
+  // noExternal: [/(.*)/],
 });
