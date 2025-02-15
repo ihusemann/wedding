@@ -1,12 +1,7 @@
-import z from "zod";
-import { extendZodWithOpenApi } from "@anatine/zod-openapi";
+import { z } from "zod";
 
-extendZodWithOpenApi(z);
-
-const userSchema = z.object({
-  id: z.string(),
-  githubId: z.number(),
-  username: z.string(),
+export const createUserSchema = z.object({
+  name: z.string().min(1),
 });
 
-export const listUsersSchema = z.array(userSchema);
+export type CreateUser = z.infer<typeof createUserSchema>;
