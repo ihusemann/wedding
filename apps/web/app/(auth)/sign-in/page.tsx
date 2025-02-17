@@ -29,7 +29,7 @@ export default function SignUpPage() {
 
   const { replace } = useRouter();
 
-  const { mutate } = trpc.auth.signIn.useMutation({
+  const { mutate, isPending } = trpc.auth.signIn.useMutation({
     onSuccess: () => {
       replace("/");
     },
@@ -97,11 +97,11 @@ export default function SignUpPage() {
             <Button
               type="submit"
               size="sm"
-              disabled={isSubmitting}
+              disabled={isPending}
               className="relative"
             >
-              <span className={cn(isSubmitting && "invisible")}>Sign up</span>
-              {isSubmitting && (
+              <span className={cn(isPending && "invisible")}>Sign in</span>
+              {isPending && (
                 <Loader2Icon className="h-5 w-5 absolute animate-spin" />
               )}
             </Button>

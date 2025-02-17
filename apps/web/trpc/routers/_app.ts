@@ -1,10 +1,10 @@
 import { createTRPCRouter } from "../init";
-import { usersRouter } from "./users";
 import { authRouter } from "./auth";
+import { eventsRouter } from "./events";
 
 export const appRouter = createTRPCRouter({
-  users: usersRouter,
   auth: authRouter,
+  events: eventsRouter,
 });
 
 export type AppRouter = typeof appRouter;
