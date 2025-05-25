@@ -1,10 +1,12 @@
 import { createTRPCRouter } from "../init";
-import { authRouter } from "./auth";
-import { eventsRouter } from "./events";
+import { guestsRouter } from "./guests";
+import { partiesRouter } from "./parties";
+import { rsvpRouter } from "./rsvp";
 
 export const appRouter = createTRPCRouter({
-  auth: authRouter,
-  events: eventsRouter,
+  rsvp: rsvpRouter,
+  guests: guestsRouter,
+  parties: partiesRouter,
 });
 
 export type AppRouter = typeof appRouter;
