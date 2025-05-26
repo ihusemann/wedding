@@ -26,7 +26,7 @@ export default function HomeLayout({ children }: PropsWithChildren) {
               <Link
                 href="/rsvp"
                 className={cn(
-                  pathname === "/rsvp" && "underline underline-offset-4"
+                  pathname.startsWith("/rsvp") && "underline underline-offset-4"
                 )}
               >
                 RSVP
