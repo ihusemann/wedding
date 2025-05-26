@@ -1,6 +1,5 @@
 "use client";
 
-import { RouterOutput } from "@/trpc/client";
 import { partyRsvpSchema } from "@repo/schemas/rsvp";
 import { FieldArrayWithId, useFormContext, useWatch } from "react-hook-form";
 import { z } from "zod";

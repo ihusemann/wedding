@@ -1,10 +1,4 @@
-import {
-  Geist,
-  Geist_Mono,
-  Poppins,
-  Alegreya,
-  Cormorant,
-} from "next/font/google";
+import { Geist_Mono, Poppins, Cormorant } from "next/font/google";
 import { Providers } from "@/components/providers";
 import "@repo/ui/globals.css";
 import "./globals.css";
