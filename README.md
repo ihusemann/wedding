@@ -1,31 +1,10 @@
-# shadcn/ui monorepo template
+# Wedding Website
 
-This template is for creating a monorepo with shadcn/ui.
+A lovingly handcrafted website for our wedding — because when you're a software engineer, nothing says "I love you" like spending weekends building an RSVP form instead of just using The Knot.
 
-## Usage
+## Tech Stack
 
-```bash
-pnpm dlx shadcn@latest init
-```
-
-## Adding components
-
-To add components to your app, run the following command at the root of your `web` app:
-
-```bash
-pnpm dlx shadcn@latest add button -c apps/web
-```
-
-This will place the ui components in the `packages/ui/src/components` directory.
-
-## Tailwind
-
-Your `tailwind.config.ts` and `globals.css` are already set up to use the components from the `ui` package.
-
-## Using components
-
-To use the components in your app, import them from the `ui` package.
-
-```tsx
-import { Button } from "@repo/ui/components/ui/button";
-```
+- Next.js
+- tRPC
+- Prisma
+- react-hook-form
