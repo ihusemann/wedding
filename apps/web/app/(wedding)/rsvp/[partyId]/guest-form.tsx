@@ -23,18 +23,20 @@ type Props = FieldArrayWithId<z.infer<typeof partyRsvpSchema>> & {
   index: number;
 };
 
-export default function GuestForm({ name, index }: Props) {
+export default function GuestForm({ name, index, isPlusOne }: Props) {
   const { control } = useFormContext<z.infer<typeof partyRsvpSchema>>();
   const rsvp = useWatch({
     control,
     name: `guests.${index}.rsvp`,
   });
 
+  console.log(name, isPlusOne);
+
   return (
     <div className="py-8 flex items-center justify-between">
-      <div className="font-medium font-mono relative">
+      <div className="font-medium relative">
         {name || "Guest Name Unknown"}
-        <span className="font-mono text-base text-red-600 absolute -top-1 -right-3">
+        <span className="text-base text-red-600 absolute -top-1 -right-3">
           *
         </span>
       </div>
@@ -54,17 +56,13 @@ export default function GuestForm({ name, index }: Props) {
                     <FormControl>
                       <RadioGroupItem value="attending" />
                     </FormControl>
-                    <FormLabel className="font-mono font-medium">
-                      Attending
-                    </FormLabel>
+                    <FormLabel className="font-medium">Attending</FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
                       <RadioGroupItem value="declined" />
                     </FormControl>
-                    <FormLabel className="font-mono font-medium">
-                      Not Attending
-                    </FormLabel>
+                    <FormLabel className="font-medium">Not Attending</FormLabel>
                   </FormItem>
                 </RadioGroup>
               </FormControl>
@@ -73,7 +71,7 @@ export default function GuestForm({ name, index }: Props) {
         />
         {rsvp === "attending" && (
           <>
-            {!name && (
+            {(!name || isPlusOne) && (
               <FormField
                 control={control}
                 name={`guests.${index}.name`}

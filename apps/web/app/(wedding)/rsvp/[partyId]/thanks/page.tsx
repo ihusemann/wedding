@@ -23,7 +23,7 @@ export default async function ThanksPage({ params }: Props) {
 
   return (
     <div className="mt-12">
-      <h1 className="text-2xl font-mono text-center font-semibold">
+      <h1 className="text-2xl text-center font-semibold">
         {allAttending
           ? "We can't wait to see you there!"
           : "Thanks for your response!"}
@@ -31,20 +31,20 @@ export default async function ThanksPage({ params }: Props) {
       <div className="divide-y w-full mt-9 divide-primary/50 border-y border-primary/50">
         {guests.map(({ id, name, rsvp, mealSelection }) => (
           <div key={id} className="py-8 flex items-center justify-between">
-            <div className="font-medium font-mono relative">{name}</div>
+            <div className="font-medium relative">{name}</div>
             <div className="flex flex-col space-y-1 items-end">
               {rsvp === "attending" ? (
                 <>
                   <div className="flex items-center space-x-2">
                     <CircleCheckBigIcon className="h-4 w-4 text-green-600" />
-                    <p className="font-mono font-medium text-sm">Attending</p>
+                    <p className="font-medium text-sm">Attending</p>
                   </div>
                   <p className="text-sm font-mono">{`Meal: ${meals[mealSelection!]}`}</p>
                 </>
               ) : (
                 <div className="flex items-center space-x-2">
                   <CircleXIcon className="h-4 w-4 text-red-700" />
-                  <p className="font-mono font-medium text-sm">Not Attending</p>
+                  <p className="font-medium text-sm">Not Attending</p>
                 </div>
               )}
             </div>

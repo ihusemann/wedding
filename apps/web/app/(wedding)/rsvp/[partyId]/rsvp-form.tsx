@@ -30,8 +30,9 @@ export default function RsvpForm({ guests }: Props) {
 
   const form = useForm<FormFields>({
     defaultValues: {
-      guests: guests.map(({ id, name, rsvp, mealSelection }) => ({
+      guests: guests.map(({ id, name, rsvp, mealSelection, isPlusOne }) => ({
         id,
+        isPlusOne,
         name: name || "",
         rsvp: rsvp as "attending" | "declined" | undefined,
         mealSelection: mealSelection || "",
@@ -114,10 +115,8 @@ export default function RsvpForm({ guests }: Props) {
         {!noneAttending && (
           <div className="bg-accent rounded-2xl p-6 w-full flex flex-col items-center mt-8">
             <div className="w-full max-w-xl mx-auto">
-              <p className="font-mono mb-3 text-center font-medium">
-                Lastly...
-              </p>
-              <p className="font-mono text-sm">
+              <p className="mb-3 text-center font-medium">Lastly...</p>
+              <p className="text-sm">
                 Are there any dietary restrictions we should know of? (Optional)
               </p>
               <FormField
@@ -143,7 +142,7 @@ export default function RsvpForm({ guests }: Props) {
           <Button
             size="lg"
             disabled={!form.formState.isValid || isPending}
-            className="font-mono text-base relative"
+            className="text-base relative"
           >
             <span className={cn(isPending && "invisible")}>Submit</span>
             {isPending && (

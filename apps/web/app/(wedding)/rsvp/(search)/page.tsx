@@ -58,7 +58,7 @@ export default function RsvpPage() {
   return (
     data.length > 0 && (
       <div className="divide-y w-full divide-primary/50">
-        <div className="text-sm font-mono pb-4">
+        <div className="text-sm pb-4">
           Select your party below or try another search.
         </div>
         {data.map(({ id, guests }) => (
@@ -83,7 +83,7 @@ export default function RsvpPage() {
             </Button>
           </div>
         ))}
-        <div className="text-xs font-mono text-center pt-6">
+        <div className="text-xs text-center pt-6">
           <p className="max-w-md mx-auto">
             If you can&apos;t find yourself or your party, please reach out to
             Isaac &amp; Laura directly.

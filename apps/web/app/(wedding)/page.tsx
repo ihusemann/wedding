@@ -23,7 +23,7 @@ export default async function Page() {
       </div>
 
       <div className="px-8 mt-3">
-        <div className="text-sm font-mono max-w-sm uppercase tracking-tight">
+        <div className="text-base max-w-sm tracking-tight">
           We&apos;re getting married! We hope you can join us to celebrate our
           special day.
         </div>
@@ -55,9 +55,9 @@ export default async function Page() {
         </div>
       </div> */}
 
-      <div className="grid grid-cols-1 md:grid-cols-[400px,1fr] my-16 gap-x-24 items-center px-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-[400px,1fr] my-16 gap-x-24 items-center px-8 max-w-5xl mx-auto">
         <div>
-          <div className="w-full md:max-w-[400px] flex items-center justify-start">
+          <div className="w-full lg:max-w-[400px] flex items-center justify-start">
             <Image
               src={image2}
               alt=""
@@ -66,10 +66,8 @@ export default async function Page() {
             />
           </div>
         </div>
-        <div className="grid grid-cols-[150px,1fr] gap-y-20 gap-x-12 text-sm uppercase font-mono">
-          <div className="text-sm font-mono font-semibold uppercase">
-            Itinerary
-          </div>
+        <div className="grid grid-cols-[100px,1fr] sm:grid-cols-[150px,1fr] gap-y-20 gap-x-12 text-sm mt-12 lg:mt-0 uppercase font-mono">
+          <div className="text-sm font-semibold uppercase">Itinerary</div>
           <div className="flex flex-col gap-y-1">
             <div className="flex justify-between space-x-2">
               <div className="text-sm">5:00 PM</div>
@@ -97,10 +95,8 @@ export default async function Page() {
               <div className="text-sm">Dancing</div>
             </div>
           </div>
-          <div className="grid grid-cols-[150px,1fr] gap-x-12 text-sm uppercase font-mono">
-            <div className="text-sm font-mono font-semibold uppercase">
-              Wear
-            </div>
+          <div className="grid grid-cols-[100px,1fr] sm:grid-cols-[150px,1fr] gap-x-12 text-sm uppercase font-mono">
+            <div className="text-sm font-semibold uppercase">Wear</div>
             <div className="flex flex-col gap-y-1">
               <div className="whitespace-nowrap">Cocktail attire</div>
             </div>
@@ -108,17 +104,21 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="my-12 px-8 text-sm font-mono gap-x-12 max-w-lg w-full mx-auto">
+      <div className="my-12 px-8 text-sm gap-x-12 max-w-lg w-full mx-auto">
         <div>
           We are so grateful to have you as a part of our lives, and your
           presence at our wedding is the greatest gift of all. If you would like
           to celebrate this occasion with a gift, we have created a registry.
         </div>
         <div className="flex max-w-md justify-center items-center h-full mt-6">
-          <button className="border border-primary hover:underline hover:underline-offset-2 px-5 text-xs flex items-center uppercase h-fit py-3 font-mono font-medium tracking-wide">
+          <Link
+            href="https://www.zola.com/registry/isaacandlaura2025/?preview=true"
+            target="_blank"
+            className="border border-primary hover:underline hover:underline-offset-2 px-5 text-xs flex items-center uppercase h-fit py-3 font-medium tracking-wide"
+          >
             View our wedding registry
             <ArrowUpRightIcon className="h-4 w-4 ml-2" />
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -153,7 +153,13 @@ export default async function Page() {
         <div className="grid grid-cols-1 max-w-sm md:grid-cols-2 md:max-w-3xl mx-auto w-full gap-12 text-sm font-mono">
           <div>
             <div className="font-bold">What is the RSVP deadline?</div>
-            <div>We kindly ask that you RSVP by Saturday, September 20th.</div>
+            <div>
+              We kindly ask that you{" "}
+              <Link href="/rsvp" className="underline underline-offset-2">
+                RSVP
+              </Link>{" "}
+              by Saturday, September 20th.
+            </div>
           </div>
           <div>
             <div className="font-bold">What should I wear?</div>
@@ -169,7 +175,11 @@ export default async function Page() {
               There will be a box for cards at the venue. If you wish to gift a
               physical object that does not fit inside a card, we kindly ask
               that you ship it to the address on our{" "}
-              <Link href="#" className="underline underline-offset-2">
+              <Link
+                href="https://www.zola.com/registry/isaacandlaura2025/?preview=true"
+                target="_blank"
+                className="underline underline-offset-2"
+              >
                 registry
               </Link>
               . Thank you for your generosity!

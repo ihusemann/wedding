@@ -1,15 +1,21 @@
-import { Geist_Mono, Poppins, Cormorant } from "next/font/google";
+import {
+  Geist_Mono,
+  Poppins,
+  Cormorant,
+  Overpass,
+  Rakkas,
+} from "next/font/google";
 import { Providers } from "@/components/providers";
 import "@repo/ui/globals.css";
 import "./globals.css";
+import { Metadata } from "next";
 
-const fontSans = Poppins({
+const fontSans = Overpass({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
 });
 
-const fontMono = Geist_Mono({
+const fontMono = Overpass({
   subsets: ["latin"],
   variable: "--font-mono",
 });
@@ -20,11 +26,16 @@ const fontMono = Geist_Mono({
 //   weight: ["400", "500", "600", "700"],
 // });
 
-const fontSerif = Cormorant({
+const fontSerif = Rakkas({
   subsets: ["latin"],
   variable: "--font-serif",
-  weight: ["400", "500", "600", "700"],
+  weight: "400",
+  // weight: ["400", "500", "600", "700"],
 });
+
+export const metadata: Metadata = {
+  title: "Laura & Isaac | 2025",
+};
 
 export default function RootLayout({
   children,

@@ -4,6 +4,7 @@ export const rsvpSchema = z
   .object({
     id: z.string(),
     name: z.string().min(4).optional().or(z.literal("")),
+    isPlusOne: z.boolean(),
     rsvp: z.enum(["attending", "declined"]),
     mealSelection: z.string().optional(),
   })
