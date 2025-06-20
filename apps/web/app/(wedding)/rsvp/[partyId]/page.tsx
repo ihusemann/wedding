@@ -1,26 +1,12 @@
 import { trpc } from "@/trpc/server";
 import RsvpForm from "./rsvp-form";
-import { Guest } from "@repo/db";
+import { sortGuests } from "@/lib/util";
 
 type Props = {
   params: Promise<{
     partyId: string;
   }>;
 };
-
-function sortGuests(
-  { name: aName, isPlusOne: aPlusOne }: Guest,
-  { name: bName, isPlusOne: bPlusOne }: Guest
-) {
-  if (aName == null && bName == null) return 0;
-  if (aName === null) return 1;
-  if (bName === null) return -1;
-
-  if (aPlusOne && !bPlusOne) return 1;
-  if (!aPlusOne && bPlusOne) return -1;
-
-  return aName.localeCompare(bName);
-}
 
 export default async function RsvpPartyPage({ params }: Props) {
   const { partyId } = await params;

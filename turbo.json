@@ -1,7 +1,13 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
-  "globalEnv": ["DATABASE_URL", "DIRECT_URL", "RECAPTCHA_SECRET_KEY"],
+  "globalEnv": [
+    "DATABASE_URL",
+    "DIRECT_URL",
+    "RECAPTCHA_SECRET_KEY",
+    "WEBSITE_PASSWORD",
+    "NODE_ENV"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],

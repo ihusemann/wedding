@@ -5,6 +5,7 @@ import { trpc } from "@/trpc/client";
 import Link from "next/link";
 import { useQueryState } from "nuqs";
 import { Guest } from "@repo/db";
+import { sortGuests } from "@/lib/util";
 
 export default function RsvpPage() {
   const [name] = useQueryState("name");
@@ -45,14 +46,6 @@ export default function RsvpPage() {
         Hmm, nobody matches that name.
       </p>
     );
-  }
-
-  function sortGuests({ name: aName }: Guest, { name: bName }: Guest) {
-    if (aName == null && bName == null) return 0;
-    if (aName === null) return 1;
-    if (bName === null) return -1;
-
-    return aName.localeCompare(bName);
   }
 
   return (

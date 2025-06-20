@@ -31,7 +31,7 @@ export default async function ThanksPage({ params }: Props) {
       <div className="divide-y w-full mt-9 divide-primary/50 border-y border-primary/50">
         {guests.map(({ id, name, rsvp, mealSelection }) => (
           <div key={id} className="py-8 flex items-center justify-between">
-            <div className="font-medium relative">{name}</div>
+            <div className="font-medium relative">{name || "Guest"}</div>
             <div className="flex flex-col space-y-1 items-end">
               {rsvp === "attending" ? (
                 <>

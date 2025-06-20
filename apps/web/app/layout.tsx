@@ -1,10 +1,4 @@
-import {
-  Geist_Mono,
-  Poppins,
-  Cormorant,
-  Overpass,
-  Rakkas,
-} from "next/font/google";
+import { Overpass, Rakkas } from "next/font/google";
 import { Providers } from "@/components/providers";
 import "@repo/ui/globals.css";
 import "./globals.css";

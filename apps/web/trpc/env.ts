@@ -7,6 +7,7 @@ import { z } from "zod";
 
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
+  WEBSITE_PASSWORD: z.string(),
 });
 
 const _env = envSchema.safeParse(process.env);
