@@ -51,13 +51,13 @@ export default function LoginPage() {
           console.log(data);
           mutate(data);
         })}
-        className="max-w-md"
+        className="max-w-md w-full"
       >
         <FormField
           control={form.control}
           name="password"
           render={({ field }) => (
-            <FormItem className="">
+            <FormItem>
               <FormLabel className="sr-only">Password</FormLabel>
               <FormControl>
                 <input

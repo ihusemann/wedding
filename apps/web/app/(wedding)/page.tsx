@@ -11,7 +11,7 @@ import Link from "next/link";
 export default async function Page() {
   return (
     <>
-      <div className="pt-12 px-4">
+      <div className="pt-12 ">
         <div className="w-full flex h-[90svh] items-center overflow-hidden justify-center">
           <Image
             src={heroImage}
@@ -22,7 +22,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="px-4 mt-3">
+      <div className=" mt-3">
         <div className="text-base max-w-sm tracking-tight">
           We&apos;re getting married! We hope you can join us to celebrate our
           special day.
@@ -55,7 +55,7 @@ export default async function Page() {
         </div>
       </div> */}
 
-      <div className="grid grid-cols-1 lg:grid-cols-[400px,1fr] my-16 gap-x-24 items-center px-4 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-[400px,1fr] my-16 gap-x-24 items-center  max-w-5xl mx-auto">
         <div>
           <div className="w-full lg:max-w-[400px] flex items-center justify-start">
             <Image
@@ -104,7 +104,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="my-12 px-4 text-sm gap-x-12 max-w-lg w-full mx-auto">
+      <div className="my-12  text-sm gap-x-12 max-w-lg w-full mx-auto">
         <div>
           We are so grateful to have you as a part of our lives, and your
           presence at our wedding is the greatest gift of all. If you would like
@@ -122,7 +122,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="px-6 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-x-4 mb-12 overflow-hidden">
+      <div className="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-x-4 mb-12 overflow-hidden">
         <div className="md:h-[500px] hidden md:flex items-center justify-center">
           <Image
             src={image4}
