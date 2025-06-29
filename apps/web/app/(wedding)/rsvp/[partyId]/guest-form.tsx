@@ -33,14 +33,14 @@ export default function GuestForm({ name, index, isPlusOne }: Props) {
   console.log(name, isPlusOne);
 
   return (
-    <div className="py-8 flex items-center justify-between">
-      <div className="font-medium relative">
+    <div className="py-8 flex flex-col md:flex-row md:items-center md:justify-between">
+      <div className="font-semibold relative mb-6 self-start md:self-auto">
         {name || "Guest Name Unknown"}
         <span className="text-base text-red-600 absolute -top-1 -right-3">
           *
         </span>
       </div>
-      <div className="flex flex-col space-y-1">
+      <div className="flex flex-col space-y-1 px-3 md:px-0">
         <FormField
           control={control}
           name={`guests.${index}.rsvp`}

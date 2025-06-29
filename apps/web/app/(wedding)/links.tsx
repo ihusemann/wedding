@@ -8,7 +8,7 @@ export default function Links() {
   const pathname = usePathname();
 
   return (
-    <div className="flex uppercase font-bold mb-3 text-sm tracking-wide justify-center items-start space-x-6">
+    <div className="flex uppercase font-bold mb-3 md:text-sm tracking-wide justify-center items-start space-x-6">
       <Link
         href="/"
         className={cn(pathname === "/" && "underline underline-offset-4")}

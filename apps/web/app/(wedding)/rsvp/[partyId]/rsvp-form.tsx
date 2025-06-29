@@ -115,8 +115,8 @@ export default function RsvpForm({ guests }: Props) {
         {!noneAttending && (
           <div className="bg-accent rounded-2xl p-6 w-full flex flex-col items-center mt-8">
             <div className="w-full max-w-xl mx-auto">
-              <p className="mb-3 text-center font-medium">Lastly...</p>
-              <p className="text-sm">
+              <p className="mb-3 text-center font-semibold">Lastly...</p>
+              <p className="md:text-sm">
                 Are there any dietary restrictions we should know of? (Optional)
               </p>
               <FormField

@@ -4,11 +4,12 @@ import { Button } from "@repo/ui/components/button";
 import { trpc } from "@/trpc/client";
 import Link from "next/link";
 import { useQueryState } from "nuqs";
-import { Guest } from "@repo/db";
 import { sortGuests } from "@/lib/util";
+import { useEffect, useRef } from "react";
 
 export default function RsvpPage() {
   const [name] = useQueryState("name");
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const { data, isLoading, isError } = trpc.guests.list.useQuery(
     {
@@ -23,6 +24,14 @@ export default function RsvpPage() {
       gcTime: 1000 * 60 * 65, // 65 minutes
     }
   );
+
+  useEffect(() => {
+    if ((data ?? []).length > 0) {
+      resultsRef.current?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, [data]);
 
   if (!name) return null;
 
@@ -50,13 +59,13 @@ export default function RsvpPage() {
 
   return (
     data.length > 0 && (
-      <div className="divide-y w-full divide-primary/50">
-        <div className="text-sm pb-4">
+      <div ref={resultsRef} className="divide-y w-full divide-primary/50">
+        <div className="md:text-sm pb-4">
           Select your party below or try another search.
         </div>
         {data.map(({ id, guests }) => (
           <div key={id} className="py-6 flex justify-between items-center">
-            <div className="text-sm font-mono">
+            <div className="md:text-sm font-mono">
               {guests.sort(sortGuests).map(({ id, name }) => (
                 <p key={id} className="font-medium">
                   {name || "Guest"}

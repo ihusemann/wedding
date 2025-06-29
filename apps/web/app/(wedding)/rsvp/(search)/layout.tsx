@@ -1,3 +1,5 @@
+"use client";
+
 import { PropsWithChildren, Suspense } from "react";
 import SearchForm from "./search-form";
 
