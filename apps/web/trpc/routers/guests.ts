@@ -14,7 +14,7 @@ export const guestsRouter = createTRPCRouter({
           guests: {
             some: {
               name: {
-                contains: name,
+                contains: name.trim(),
                 mode: "insensitive",
               },
             },

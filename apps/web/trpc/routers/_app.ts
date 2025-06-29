@@ -13,7 +13,9 @@ export const appRouter = createTRPCRouter({
   login: publicProcedure
     .input(loginSchema)
     .mutation(async ({ input: { password } }) => {
-      if (password.toLowerCase() === env.WEBSITE_PASSWORD.toLowerCase()) {
+      if (
+        password.trim().toLowerCase() === env.WEBSITE_PASSWORD.toLowerCase()
+      ) {
         (await cookies()).set("session", env.WEBSITE_PASSWORD, {
           httpOnly: true,
           secure: process.env.NODE_ENV === "production",

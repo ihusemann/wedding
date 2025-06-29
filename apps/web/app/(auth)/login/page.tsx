@@ -30,7 +30,7 @@ export default function LoginPage() {
   });
 
   const { mutate, isPending } = trpc.login.useMutation({
-    onError: (e) => {
+    onError: () => {
       setMessage("Something went wrong.  Please try again later.");
     },
 
