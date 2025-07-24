@@ -49,8 +49,25 @@ export const rsvpRouter = createTRPCRouter({
           })
         );
 
-        const res = await db.rsvp.createMany({
-          data,
+        const plusOnes = guests.filter(({ isPlusOne }) => isPlusOne);
+
+        const res = await db.$transaction(async (tx) => {
+          const res = await tx.rsvp.createMany({
+            data,
+          });
+
+          for await (const { id, name } of plusOnes) {
+            await tx.guest.update({
+              where: {
+                id,
+              },
+              data: {
+                name,
+              },
+            });
+          }
+
+          return res;
         });
 
         return res;
