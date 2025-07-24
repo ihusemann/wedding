@@ -9,6 +9,14 @@ export const partiesRouter = createTRPCRouter({
         where: {
           partyId,
         },
+        include: {
+          rsvps: {
+            orderBy: {
+              createdAt: "desc",
+            },
+            take: 1,
+          },
+        },
       })
     ),
 

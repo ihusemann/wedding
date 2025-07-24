@@ -21,7 +21,16 @@ export const guestsRouter = createTRPCRouter({
           },
         },
         include: {
-          guests: true,
+          guests: {
+            include: {
+              rsvps: {
+                orderBy: {
+                  createdAt: "desc",
+                },
+                take: 1,
+              },
+            },
+          },
         },
       });
     }),

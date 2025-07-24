@@ -1,16 +1,20 @@
 import z from "zod";
 
+export const responseSchema = z.enum(["Attending", "Declined"]);
+
+export const mealSchema = z.enum(["Steak", "Chicken", "Risotto"]);
+
 export const rsvpSchema = z
   .object({
     id: z.string(),
     name: z.string().min(4).optional().or(z.literal("")),
     isPlusOne: z.boolean(),
-    rsvp: z.enum(["attending", "declined"]),
-    mealSelection: z.string().optional(),
+    rsvp: responseSchema,
+    mealSelection: mealSchema.optional(),
   })
   .refine(
     ({ rsvp, mealSelection, name }) => {
-      if (rsvp === "attending") {
+      if (rsvp === "Attending") {
         return !!mealSelection && !!name;
       }
 

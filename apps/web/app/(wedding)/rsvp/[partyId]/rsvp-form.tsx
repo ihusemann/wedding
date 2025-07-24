@@ -30,18 +30,18 @@ export default function RsvpForm({ guests }: Props) {
 
   const form = useForm<FormFields>({
     defaultValues: {
-      guests: guests.map(({ id, name, rsvp, mealSelection, isPlusOne }) => ({
+      guests: guests.map(({ id, name, isPlusOne, rsvps }) => ({
         id,
         isPlusOne,
         name: name || "",
-        rsvp: rsvp as "attending" | "declined" | undefined,
-        mealSelection: mealSelection || "",
+        rsvp: rsvps[0]?.response,
+        mealSelection: rsvps[0]?.meal ?? undefined,
       })),
       recaptchaToken: "",
       specialConsiderations: guests.every(
-        ({ specialConsiderations }) => specialConsiderations
+        ({ rsvps }) => rsvps[0]?.specialConsiderations
       )
-        ? guests[0]?.specialConsiderations
+        ? guests[0]?.rsvps[0]?.specialConsiderations
         : "",
     },
     resolver: zodResolver(partyRsvpSchema),
@@ -63,7 +63,7 @@ export default function RsvpForm({ guests }: Props) {
 
   const noneAttending = form
     .watch("guests")
-    .every(({ rsvp }) => rsvp === "declined");
+    .every(({ rsvp }) => rsvp === "Declined");
 
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 

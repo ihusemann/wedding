@@ -30,8 +30,6 @@ export default function GuestForm({ name, index, isPlusOne }: Props) {
     name: `guests.${index}.rsvp`,
   });
 
-  console.log(name, isPlusOne);
-
   return (
     <div className="py-8 flex flex-col md:flex-row md:items-center md:justify-between">
       <div className="font-semibold relative mb-6 self-start md:self-auto">
@@ -54,13 +52,13 @@ export default function GuestForm({ name, index, isPlusOne }: Props) {
                 >
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value="attending" />
+                      <RadioGroupItem value="Attending" />
                     </FormControl>
                     <FormLabel className="font-medium">Attending</FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value="declined" />
+                      <RadioGroupItem value="Declined" />
                     </FormControl>
                     <FormLabel className="font-medium">Not Attending</FormLabel>
                   </FormItem>
@@ -69,7 +67,7 @@ export default function GuestForm({ name, index, isPlusOne }: Props) {
             </FormItem>
           )}
         />
-        {rsvp === "attending" && (
+        {rsvp === "Attending" && (
           <>
             {(!name || isPlusOne) && (
               <FormField
@@ -104,13 +102,13 @@ export default function GuestForm({ name, index, isPlusOne }: Props) {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="steak" className="py-2.5">
+                      <SelectItem value="Steak" className="py-2.5">
                         Steak with Potatoes
                       </SelectItem>
-                      <SelectItem value="chicken" className="py-2.5">
+                      <SelectItem value="Chicken" className="py-2.5">
                         Marry-Me Chicken
                       </SelectItem>
-                      <SelectItem value="risotto" className="py-2.5">
+                      <SelectItem value="Risotto" className="py-2.5">
                         Mushroom Risotto (Vegetarian)
                       </SelectItem>
                     </SelectContent>

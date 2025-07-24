@@ -1,6 +1,8 @@
 import { TRPCError } from "@trpc/server";
 import { createTRPCRouter, procedure } from "../init";
 import { partyRsvpSchema } from "@repo/schemas/rsvp";
+import { z } from "zod";
+import { Prisma } from "@repo/db";
 
 async function verifyRecaptcha(token: string) {
   const res = await fetch(
@@ -32,28 +34,23 @@ export const rsvpRouter = createTRPCRouter({
     .input(partyRsvpSchema)
     .mutation(
       async ({
-        ctx: { db },
+        ctx: { db, userAgent },
         input: { guests, specialConsiderations, recaptchaToken },
       }) => {
-        const respondedAt = new Date();
-
         await verifyRecaptcha(recaptchaToken);
 
-        const res = await db.$transaction(async (tx) => {
-          const tasks = guests.map(({ id, ...guest }) =>
-            tx.guest.update({
-              where: {
-                id,
-              },
-              data: {
-                ...guest,
-                specialConsiderations,
-                respondedAt,
-              },
-            })
-          );
+        const data: Prisma.RsvpCreateManyInput[] = guests.map(
+          ({ id: guestId, mealSelection, rsvp }) => ({
+            guestId,
+            response: rsvp,
+            meal: rsvp === "Attending" ? mealSelection : undefined,
+            specialConsiderations,
+            metadata: userAgent ? JSON.stringify(userAgent) : undefined,
+          })
+        );
 
-          return Promise.all(tasks);
+        const res = await db.rsvp.createMany({
+          data,
         });
 
         return res;

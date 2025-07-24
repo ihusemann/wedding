@@ -90,7 +90,7 @@ export default async function Page() {
               <div className="text-sm">Dinner</div>
             </div>
             <div className="flex justify-between space-x-2">
-              <div className="text-sm">8:00 PM</div>
+              <div className="text-sm">8:30 PM</div>
               <div className="grow border-b-2 border-primary h-[calc(50%+2px)] border-dotted" />
               <div className="text-sm">Dancing</div>
             </div>

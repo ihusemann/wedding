@@ -75,7 +75,7 @@ export default function RsvpPage() {
             <Button size="sm" asChild>
               <Link
                 href={
-                  guests.some(({ respondedAt }) => respondedAt === null)
+                  guests.some(({ rsvps }) => rsvps.length === 0)
                     ? `/rsvp/${id}`
                     : `/rsvp/${id}/thanks`
                 }

@@ -13,12 +13,14 @@ export default async function ThanksPage({ params }: Props) {
   const { partyId } = await params;
   const guests = await trpc.parties.listGuests({ partyId });
 
-  const allAttending = guests.every(({ rsvp }) => rsvp === "attending");
+  const allAttending = guests.every(
+    ({ rsvps }) => rsvps[0]?.response === "Attending"
+  );
 
   const meals: Record<string, string> = {
-    steak: "Steak with Potatoes",
-    chicken: "Marry-Me Chicken",
-    risotto: "Mushroom Risotto (Vegetarian)",
+    Steak: "Steak with Potatoes",
+    Chicken: "Marry-Me Chicken",
+    Risotto: "Mushroom Risotto (Vegetarian)",
   };
 
   return (
@@ -29,17 +31,17 @@ export default async function ThanksPage({ params }: Props) {
           : "Thanks for your response!"}
       </h1>
       <div className="divide-y w-full mt-9 divide-primary/50 border-y border-primary/50">
-        {guests.map(({ id, name, rsvp, mealSelection }) => (
+        {guests.map(({ id, name, rsvps }) => (
           <div key={id} className="py-8 flex items-center justify-between">
             <div className="font-medium relative">{name || "Guest"}</div>
             <div className="flex flex-col space-y-1 items-end">
-              {rsvp === "attending" ? (
+              {rsvps[0]?.response === "Attending" ? (
                 <>
                   <div className="flex items-center space-x-2">
                     <CircleCheckBigIcon className="h-4 w-4 text-green-600" />
                     <p className="font-medium text-sm">Attending</p>
                   </div>
-                  <p className="text-sm font-mono">{`Meal: ${meals[mealSelection!]}`}</p>
+                  <p className="text-sm font-mono">{`Meal: ${meals[rsvps[0]?.meal!]}`}</p>
                 </>
               ) : (
                 <div className="flex items-center space-x-2">
