@@ -1,5 +1,5 @@
 import { TRPCError } from "@trpc/server";
-import { createTRPCRouter, publicProcedure } from "../init";
+import { createTRPCRouter, procedure } from "../init";
 import { partyRsvpSchema } from "@repo/schemas/rsvp";
 
 async function verifyRecaptcha(token: string) {
@@ -28,7 +28,7 @@ async function verifyRecaptcha(token: string) {
 }
 
 export const rsvpRouter = createTRPCRouter({
-  rsvp: publicProcedure
+  rsvp: procedure
     .input(partyRsvpSchema)
     .mutation(
       async ({

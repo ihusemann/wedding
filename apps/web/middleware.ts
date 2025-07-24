@@ -1,10 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-function hashPassword(password: string): string {
-  return password;
-  // return crypto.createHash("sha256").update(password).digest("hex");
-}
-
 if (!process.env.WEBSITE_PASSWORD) throw new Error();
 
 export default function middleware(request: NextRequest) {
@@ -12,14 +7,9 @@ export default function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
 
-  console.log(pathname);
-
   if (pathname === "/login") return NextResponse.next();
 
-  if (
-    pw &&
-    hashPassword(pw.value) === hashPassword(process.env.WEBSITE_PASSWORD!)
-  ) {
+  if (pw && pw.value === process.env.WEBSITE_PASSWORD) {
     return NextResponse.next();
   }
 

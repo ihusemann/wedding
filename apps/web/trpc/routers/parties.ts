@@ -1,8 +1,8 @@
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "../init";
+import { createTRPCRouter, procedure } from "../init";
 
 export const partiesRouter = createTRPCRouter({
-  listGuests: publicProcedure
+  listGuests: procedure
     .input(z.object({ partyId: z.string() }))
     .query(({ ctx: { db }, input: { partyId } }) =>
       db.guest.findMany({
@@ -12,7 +12,7 @@ export const partiesRouter = createTRPCRouter({
       })
     ),
 
-  get: publicProcedure.input(z.string()).query(({ ctx: { db }, input: id }) =>
+  get: procedure.input(z.string()).query(({ ctx: { db }, input: id }) =>
     db.party.findUnique({
       where: {
         id,
@@ -23,7 +23,7 @@ export const partiesRouter = createTRPCRouter({
     })
   ),
 
-  list: publicProcedure
+  list: procedure
     .input(
       z.object({
         name: z.string(),
