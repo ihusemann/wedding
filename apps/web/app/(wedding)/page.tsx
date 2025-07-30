@@ -11,21 +11,23 @@ import Link from "next/link";
 export default async function Page() {
   return (
     <>
-      <div className="pt-12 ">
-        <div className="w-full flex h-[90svh] items-center overflow-hidden justify-center">
-          <Image
-            src={heroImage}
-            alt=""
-            className="object-cover h-full object-top"
-            width={2000}
-          />
+      <div className="w-full max-w-6xl mx-auto">
+        <div className="pt-12 ">
+          <div className="w-full flex xl:h-[97svh] h-[90svh] items-center overflow-hidden justify-center">
+            <Image
+              src={heroImage}
+              alt=""
+              className="object-cover object-top h-full"
+              width={2000}
+            />
+          </div>
         </div>
-      </div>
 
-      <div className=" mt-3">
-        <div className="text-base max-w-sm tracking-tight">
-          We&apos;re getting married! We hope you can join us to celebrate our
-          special day.
+        <div className=" mt-3">
+          <div className="text-base max-w-sm tracking-tight">
+            We&apos;re getting married! We hope you can join us to celebrate our
+            special day.
+          </div>
         </div>
       </div>
 
@@ -150,6 +152,9 @@ export default async function Page() {
       </div>
 
       <div className="my-12">
+        <h2 className="sr-only" id="faqs">
+          FAQs
+        </h2>
         <div className="grid grid-cols-1 max-w-sm md:grid-cols-2 md:max-w-3xl mx-auto w-full gap-12 text-sm font-mono">
           <div>
             <div className="font-bold">What is the RSVP deadline?</div>

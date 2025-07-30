@@ -21,19 +21,19 @@ export default async function HomeLayout({ children }: PropsWithChildren) {
           />
         </div>
 
-        <div className="flex-col flex md:flex-row space-y-6 md:space-y-0 md:ml-auto justify-around md:justify-normal md:gap-x-24">
+        <div className="flex-col flex md:flex-row sm:text-sm space-y-6 md:space-y-0 md:ml-auto justify-around md:justify-normal md:gap-x-24">
           <div className="text-center md:text-left">
-            <p className="font-bold uppercase text-sm mb-1">Date &amp; Time</p>
-            <p className="text-sm uppercase">Friday, October 10</p>
-            <p className="text-sm uppercase">5:00 PM - 12:00 AM</p>
+            <p className="font-bold uppercase  mb-1">Date &amp; Time</p>
+            <p className=" uppercase">Friday, October 10</p>
+            <p className=" uppercase">5:00 PM - 12:00 AM</p>
           </div>
           <div className="text-center md:text-left">
-            <p className="font-bold uppercase text-sm mb-1">
+            <p className="font-bold uppercase  mb-1">
               Ceremony &amp; Reception
             </p>
-            <p className="text-sm uppercase">Ravenswood Event Center</p>
-            <p className="text-sm uppercase">4021 N Ravenswood Ave</p>
-            <p className="text-sm uppercase">Chicago, IL</p>
+            <p className=" uppercase">Ravenswood Event Center</p>
+            <p className=" uppercase">4021 N Ravenswood Ave</p>
+            <p className=" uppercase">Chicago, IL</p>
           </div>
         </div>
       </div>

@@ -29,6 +29,7 @@ export default function Links() {
       >
         Registry
       </Link>
+      <Link href="#faqs">FAQs</Link>
     </div>
   );
 }
