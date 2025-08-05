@@ -46,8 +46,8 @@ export default function SearchForm() {
         className="rounded-2xl bg-muted py-12 px-4 w-full"
       >
         <p className="md:text-sm text-center w-full max-w-xl mx-auto">
-          Please enter the first and last name of one member of your party
-          below. If you&apos;re responding for you and a guest (or your family),
+          Please enter the name of one member of your party below. If
+          you&apos;re responding for you and a guest (or your family),
           you&apos;ll be able to RSVP for your entire group on the next page.
         </p>
 
@@ -61,7 +61,7 @@ export default function SearchForm() {
                 <FormControl ref={inputRef} className="">
                   <Input
                     {...field}
-                    placeholder="First and last name"
+                    placeholder="Name"
                     className="bg-background w-full sm:w-screen sm:max-w-xs font-semibold placeholder:font-medium px-4 h-10"
                   />
                 </FormControl>
