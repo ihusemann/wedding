@@ -3,6 +3,7 @@ import { Providers } from "@/components/providers";
 import "@repo/ui/globals.css";
 import "./globals.css";
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 const fontSans = Overpass({
   subsets: ["latin"],
@@ -42,6 +43,7 @@ export default function RootLayout({
         className={`${fontSans.variable} ${fontMono.variable} ${fontSerif.variable} font-sans antialiased bg-[#fefefe]`}
       >
         <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );
